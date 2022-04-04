@@ -4,7 +4,13 @@ import {Link} from 'react-router-dom'
 import { RiMessengerLine } from 'react-icons/ri';
 import {TiUserAddOutline} from 'react-icons/ti'
 import {CgLogOff} from 'react-icons/cg'
-function Header() {
+
+
+function Header({setLoginUser}) {
+  function setDataLocal(){
+    setLoginUser({});
+    localStorage.setItem('email','');
+  }
   return (
     <nav>
         <div className="left">
@@ -15,10 +21,10 @@ function Header() {
         <div className="right">
             <ul className="rightComp beforeHide">
                 <li><Link><img className="avtarLogo" src="https://e00-marca.uecdn.es/assets/multimedia/imagenes/2021/12/10/16391545485537.jpg" alt="Avatar"/></Link></li>
-                <li className="AccountHolderName" style={{width:"auto"}}>Bhaskar Chandar</li>
+                <li className="AccountHolderName" style={{width:"auto"}}></li>
                 <li><Link><RiMessengerLine style={{width:"40px",height:"40px",color:"black"}}/></Link></li>
                 <li><Link><TiUserAddOutline style={{width:"40px",height:"40px",color:"black"}}/></Link></li>
-                <li><Link><CgLogOff style={{width:"40px",height:"40px",color:"black"}}/></Link></li>
+                <li><button className='logout' onClick={()=>setDataLocal()}><Link><CgLogOff style={{width:"40px",height:"40px",color:"black"}}/></Link></button></li>
                 
             </ul>
             <div className="afterHide">

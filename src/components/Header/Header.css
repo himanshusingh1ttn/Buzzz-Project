@@ -59,6 +59,11 @@ li{
     margin-top:12px;
 }
 
+.logout{
+    background: none;
+    border:none;
+}
+
 .afterHide{
     display: none;
 }
