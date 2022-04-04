@@ -18,7 +18,7 @@ function App() {
         <Switch>
           <Route exact path="/">
             {              
-              email!=='' ? <Homepage setLoginUser={setLoginUser} /> : <Login setLoginUser={setLoginUser}/>
+              email!=='' && user? <Homepage setLoginUser={setLoginUser} /> : <Login setLoginUser={setLoginUser}/>
             }
           </Route>
           <Route path="/login">
