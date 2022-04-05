@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import "./register.css"
 import axios from "axios"
 import { useHistory } from "react-router-dom"
-import { toBeInTheDocument } from "@testing-library/jest-dom/dist/matchers"
 
 const Register = () => {
 
@@ -26,6 +25,7 @@ const Register = () => {
 
     const register = () => {
         const { name, email, password, reEnterPassword } = user
+        console.log(user);
         if (name && email && password && (password === reEnterPassword && email.endsWith("@tothenew.com"))) {
             axios.post("http://localhost:9002/register", user)
                 .then(res => {

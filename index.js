@@ -17,7 +17,7 @@ mongoose.connect("mongodb://localhost:27017/myLoginRegisterDB", {
 })
 
 const userSchema = new mongoose.Schema({
-    fname: {type:String,required:true},
+    name: {type:String,required:true},
     lname:{type:String},
     Designation:{type:String},
     MyWebsite:String,
