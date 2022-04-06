@@ -12,7 +12,11 @@ function Header({setLoginUser}) {
   function setDataLocal(){
     setLoginUser({});
     localStorage.setItem('email','');
+    localStorage.setItem('image','');
+    localStorage.setItem('Username','');
   }
+  const image=localStorage.getItem('image');
+  console.log(image)
   return (
     <nav>
         <div className="left">
@@ -22,11 +26,11 @@ function Header({setLoginUser}) {
         </div>
         <div className="right">
             <ul className="rightComp beforeHide">
-                <li><Link><img className="avtarLogo" src="https://e00-marca.uecdn.es/assets/multimedia/imagenes/2021/12/10/16391545485537.jpg" alt="Avatar"/></Link></li>
+                <li><Link to={'#'}><img className="avtarLogo" src={image} alt="Avatar"/></Link></li>
                 <li className="AccountHolderName" style={{width:"auto"}}>{userName}</li>
-                <li><Link><RiMessengerLine style={{width:"40px",height:"40px",color:"black"}}/></Link></li>
-                <li><Link><TiUserAddOutline style={{width:"40px",height:"40px",color:"black"}}/></Link></li>
-                <li><button className='logout' onClick={()=>setDataLocal()}><Link><CgLogOff style={{width:"40px",height:"40px",color:"black"}}/></Link></button></li>
+                <li><Link to={'#'}><RiMessengerLine style={{width:"40px",height:"40px",color:"black"}}/></Link></li>
+                <li><Link to={'#'}><TiUserAddOutline style={{width:"40px",height:"40px",color:"black"}}/></Link></li>
+                <li><button className='logout' onClick={()=>setDataLocal()}><Link to={'#'}><CgLogOff style={{width:"40px",height:"40px",color:"black"}}/></Link></button></li>
                 
             </ul>
             <div className="afterHide">

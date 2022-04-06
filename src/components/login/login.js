@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import "./login.css"
 import axios from "axios"
 import { useHistory } from "react-router-dom"
+import Googlelogin from "./Googlelogin"
 
 
 const Login = ({ setLoginUser }) => {
@@ -25,14 +26,12 @@ const Login = ({ setLoginUser }) => {
         axios.post("http://localhost:9002/login", user)
             .then(res => {
                 // alert(res.data.message)
-                setLoginUser(res.data.user)
                 localStorage.setItem('Username',res.data.user.name);
                 localStorage.setItem('email',user.email)
+                setLoginUser(res.data.user)
                 history.push("/")
             })
-        
     }
-
 
     return (
         <div className="wrapper">
@@ -43,7 +42,8 @@ const Login = ({ setLoginUser }) => {
                 <div className="button" onClick={login}>Login</div>
                 <div>or</div>
                 <div className="button" onClick={() => history.push("/register")}>Register</div>
-
+                <div>or <br/>Login using Google</div><br/>
+                <Googlelogin setLoginUser={setLoginUser}/>
             </div>
         </div>
     )
